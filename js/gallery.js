@@ -31,6 +31,7 @@ function animate() {
 }
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
+
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
@@ -50,6 +51,17 @@ function swapPhoto() {
 	console.log('swap photo');
 }
 
+//next photo 
+$("#nextPhoto").on("click", () => { 
+	swapPhoto(); 
+	}); 
+
+//previous photo 
+$("#prevPhoto").on("click", () => { 
+	mCurrentIndex = mCurrentIndex -2
+	console.log(mCurrentIndex); 
+	swapPhoto (); 
+}); 
 // Counter for the mImages array
 var mCurrentIndex = 0;
 
@@ -81,7 +93,24 @@ var mJson;
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
 var mUrl = 'images.json';
 
+//Click handler 
+function handler(){ 
+$('.moreIndicator').click(function() { 
+	console.log(mCurrentIndex); 
+	if ($(event.currentTarget).hasClass("rot90")){ 
+		$(".details").slideToggle();
+		$(event.currentTarget).addClass("rot270");
+		$(event.currentTarget).removeClass("rot90");
 
+	}
+	else{
+		$(event.currentTarget).addClass("rot90");
+		$(event.currentTarget).removeClass("rot270");
+		$(".details").slideToggle(); 
+	}
+
+} 
+}
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
 function makeGalleryImageOnloadCallback(galleryImage) {
