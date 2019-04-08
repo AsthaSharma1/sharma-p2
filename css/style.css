@@ -30,7 +30,8 @@ body {
 	position: absolute;
 	z-index: 3;
 	opacity: .8;
-	top: 0px;
+	left:300px;
+	top: 330px;
 }
 
 .thumbnail {
@@ -53,10 +54,17 @@ body {
 	height: 42px;
 	width: 42px;
 }
+#prevPhoto:hover{ 
+	opacity: .8;
+	}
 
 #nextPhoto {
 	height: 42px;
 	width: 42px;
+	float:right;
+}
+#nextPhoto:hover{ 
+	opacity: .8;
 }
 
 .details p {
@@ -70,12 +78,31 @@ body {
 
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/
-.rot90 {}
+.rot90 {
+	-ms-transform: rotate(90deg); 
+	-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+	transform: rotate(90deg);
+	-webkit-transition: -webkit-transform 1s ease-in;
+}
+}
+
 
 /*Add CSS styles to rotate the element 180deg
 Make it animate nicely. You'll need CSS3 for this*/
-.rot180 {}
+.rot180 {
+	-ms-transform: rotate(180deg); 
+	-webkit-transform: rotate(180deg); 
+	transform: rotate(180deg);
+	-webkit-transition: -webkit-transform 1s ease-in;
+}
 
-/*Add CSS styles to rotate the element 270deg
+/*Add CSS styles to rotate the element 270degx
 Make it animate nicely. You'll need CSS3 for this*/
-.rot270 {}
+.rot270 {
+	transform: rotate(270deg);
+	-ms-transform: rotate(270deg); 
+	-webkit-transform: rotate(270deg); 
+	transform: rotate(270deg);
+	-webkit-transition: -webkit-transform 1s ease-in;
+}
+}
