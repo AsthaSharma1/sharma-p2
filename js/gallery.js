@@ -31,12 +31,22 @@ function animate() {
 }
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
-
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+	$("#photo").attr("src",mImages[mCurrentIndex].img);
+	$("#location").attr("value",mImages[mCurrentIndex].location);
+	$("#description").attr("value",mImages[mCurrentIndex].description);
+	$("#date").attr("value",mImages[mCurrentIndex].date);
+
+	if(mCurrentIndex < mImages.length) {
+		mCurrentIndex++; 
+	}
+	else{ 
+		mCurrentIndex = 0; 
+	}; 
 	console.log('swap photo');
 }
 
@@ -45,16 +55,31 @@ var mCurrentIndex = 0;
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
+mRequest.onreadystatechange = function () {
+	if (mRequest.readyState ==4 && mRequest.status == 200){ 
+		try { 
+			var mJson= JSON.parse(mRequest.responseText); 
+			for (var i=0; i <mJson.images.length; i++) { 
+				mImages.push(new GalleryImage(mjson.images[i].location, mJson.images[i].description, mJson.images[i].date, mJson.images[i].img))
+			} 
+			}
+		}
+	};
+	mRequest.open("GET", mUrl, true); 
+	mRequest.send(); 
+
+	// body...function_name
+} 
 
 // Array holding GalleryImage objects (see below).
-var mImages = [];
+var mImages = [ ];
 
 // Holds the retrived JSON information
 var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
+var mUrl = 'images.json';
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
