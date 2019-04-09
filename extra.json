@@ -1,0 +1,34 @@
+{
+    "images": [
+        {
+            "imgPath": "img/places/australia.jpg",
+            "location": "Australia",
+            "description": "Nice rocks looking the waters",
+            "date": "01/02/19"
+        },
+        {
+            "img": "france.jpg",
+            "location": "Paria, France",
+            "description": "The Effifel Tower ",
+            "date": "01/03/19"
+        },
+        {
+            "img": "greece.jpg",
+            "location": "Greece",
+            "description": "A warm sunny day in Greece",
+            "date": "01/04/19"
+        },
+        {
+            "img": "india.jpg",
+            "location": "Agra, India",
+            "description": "One of the world's seven wonders",
+            "date": "01/05/19"
+        },
+        {
+           "img": "thailand.jpg",
+            "location": "Thailand",
+            "description": "A warm beach in Thailand",
+            "date": "01/06/19"
+        }
+  ]
+}
